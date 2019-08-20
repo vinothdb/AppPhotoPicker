@@ -15,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		6E7B6D522AACEFCB0ECAC9FD /* Pods_AppPhotoPicker_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F6D9C98C8FA4097CEF16E6 /* Pods_AppPhotoPicker_Example.framework */; };
+		DD01D8D9230BC55500373FF8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DD01D8D8230BC55500373FF8 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		671AE2DB0D822F9C8DE25E95 /* Pods-AppPhotoPicker_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppPhotoPicker_Example.debug.xcconfig"; path = "Target Support Files/Pods-AppPhotoPicker_Example/Pods-AppPhotoPicker_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B41C3D3621EAE14398DBD1D4 /* Pods-AppPhotoPicker_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppPhotoPicker_Example.release.xcconfig"; path = "Target Support Files/Pods-AppPhotoPicker_Example/Pods-AppPhotoPicker_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B50F9AA855B1A9A3AD7C048B /* Pods-AppPhotoPicker_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppPhotoPicker_Tests.debug.xcconfig"; path = "Target Support Files/Pods-AppPhotoPicker_Tests/Pods-AppPhotoPicker_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		DD01D8D8230BC55500373FF8 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E6F09BD469789ED2E56743FA /* Pods-AppPhotoPicker_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppPhotoPicker_Tests.release.xcconfig"; path = "Target Support Files/Pods-AppPhotoPicker_Tests/Pods-AppPhotoPicker_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				DD01D8D8230BC55500373FF8 /* .gitignore */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for AppPhotoPicker */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -246,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD01D8D9230BC55500373FF8 /* .gitignore in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
