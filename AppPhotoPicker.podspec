@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/monica__raja'
 
   s.ios.deployment_target = '9.3'
+  s.swift_version = '5.0'
 
   s.source_files = 'AppPhotoPicker/Classes/**/*'
   
