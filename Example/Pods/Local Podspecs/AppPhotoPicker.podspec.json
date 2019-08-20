@@ -1,0 +1,22 @@
+{
+  "name": "AppPhotoPicker",
+  "version": "0.1.0",
+  "summary": "A short description of AppPhotoPicker.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/monicarajendran/AppPhotoPicker",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "monicarajendran": "monicarajendran96@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/monicarajendran/AppPhotoPicker.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "AppPhotoPicker/Classes/**/*"
+}
