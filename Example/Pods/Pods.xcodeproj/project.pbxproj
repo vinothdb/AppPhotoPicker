@@ -15,6 +15,7 @@
 		DD0A3B95230C3D0E00966281 /* TLCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0A3B94230C3D0E00966281 /* TLCollectionTableViewCell.xib */; };
 		DD0A3B98230C3D2800966281 /* TLPhotosPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0A3B96230C3D2800966281 /* TLPhotosPickerViewController.xib */; };
 		DD0A3B99230C3D2800966281 /* TLPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0A3B97230C3D2800966281 /* TLPhotoCollectionViewCell.xib */; };
+		DD0A3B9B230C3D5800966281 /* TLPhotoPickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DD0A3B9A230C3D5700966281 /* TLPhotoPickerController.bundle */; };
 		DD3EC3CB230BDFE700BDBC8F /* TLPhotopickerDataSourcesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3EC3BE230BDFE600BDBC8F /* TLPhotopickerDataSourcesProtocol.swift */; };
 		DD3EC3CC230BDFE700BDBC8F /* TLCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3EC3BF230BDFE600BDBC8F /* TLCollectionTableViewCell.swift */; };
 		DD3EC3CD230BDFE700BDBC8F /* TLPhotosPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3EC3C0230BDFE600BDBC8F /* TLPhotosPickerViewController.swift */; };
@@ -80,6 +81,7 @@
 		DD0A3B94230C3D0E00966281 /* TLCollectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TLCollectionTableViewCell.xib; path = ../AppPhotoPicker/Classes/TLCollectionTableViewCell.xib; sourceTree = "<group>"; };
 		DD0A3B96230C3D2800966281 /* TLPhotosPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TLPhotosPickerViewController.xib; path = ../AppPhotoPicker/Classes/TLPhotosPickerViewController.xib; sourceTree = "<group>"; };
 		DD0A3B97230C3D2800966281 /* TLPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TLPhotoCollectionViewCell.xib; path = ../AppPhotoPicker/Classes/TLPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		DD0A3B9A230C3D5700966281 /* TLPhotoPickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TLPhotoPickerController.bundle; path = ../AppPhotoPicker/TLPhotoPickerController.bundle; sourceTree = "<group>"; };
 		DD3EC3BE230BDFE600BDBC8F /* TLPhotopickerDataSourcesProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TLPhotopickerDataSourcesProtocol.swift; path = AppPhotoPicker/Classes/TLPhotopickerDataSourcesProtocol.swift; sourceTree = "<group>"; };
 		DD3EC3BF230BDFE600BDBC8F /* TLCollectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TLCollectionTableViewCell.swift; path = AppPhotoPicker/Classes/TLCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		DD3EC3C0230BDFE600BDBC8F /* TLPhotosPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TLPhotosPickerViewController.swift; path = AppPhotoPicker/Classes/TLPhotosPickerViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			children = (
 				DD0A3B94230C3D0E00966281 /* TLCollectionTableViewCell.xib */,
 				DD0A3B97230C3D2800966281 /* TLPhotoCollectionViewCell.xib */,
+				DD0A3B9A230C3D5700966281 /* TLPhotoPickerController.bundle */,
 				DD0A3B96230C3D2800966281 /* TLPhotosPickerViewController.xib */,
 			);
 			path = Resources;
@@ -391,6 +394,7 @@
 			files = (
 				DD0A3B98230C3D2800966281 /* TLPhotosPickerViewController.xib in Resources */,
 				DD0A3B95230C3D0E00966281 /* TLCollectionTableViewCell.xib in Resources */,
+				DD0A3B9B230C3D5800966281 /* TLPhotoPickerController.bundle in Resources */,
 				DD0A3B99230C3D2800966281 /* TLPhotoCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
