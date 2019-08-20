@@ -22,9 +22,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'AppPhotoPicker/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'AppPhotoPicker' => ['AppPhotoPicker/Assets/*.png']
-  # }
+  s.resource_bundles = { 'AppPhotoPicker' => ['AppPhotoPicker/Classes/*.xib'] }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
 end
