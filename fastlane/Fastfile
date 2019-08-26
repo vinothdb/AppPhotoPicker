@@ -40,7 +40,8 @@ platform :ios do
     git_commit(path: ["AppPhotoPicker.podspec"],
                message: "#{version} release")
     add_git_tag(tag: "#{version}")
-    push_to_git_remote
+    push_to_git_remote(force: true,
+  		       tags: true)
     pod_push
   end
 end
