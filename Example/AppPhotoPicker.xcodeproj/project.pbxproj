@@ -282,6 +282,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 2ZN43D6J83;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -560,6 +561,7 @@
 			baseConfigurationReference = 671AE2DB0D822F9C8DE25E95 /* Pods-AppPhotoPicker_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2ZN43D6J83;
 				INFOPLIST_FILE = AppPhotoPicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -575,6 +577,7 @@
 			baseConfigurationReference = B41C3D3621EAE14398DBD1D4 /* Pods-AppPhotoPicker_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2ZN43D6J83;
 				INFOPLIST_FILE = AppPhotoPicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
