@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppPhotoPicker'
-  s.version          = '3.4.5'
+  s.version          = '3.4.6'
   s.summary          = 'Catchy photo picker, just like facebook'
 
   s.homepage         = 'https://github.com/monicarajendran/AppPhotoPicker'
