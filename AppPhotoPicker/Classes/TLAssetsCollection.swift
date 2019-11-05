@@ -326,6 +326,7 @@ public struct TLAssetsCollection {
                 }
             }
         }
+        return indexPath
     }
     
     func getAsset(at index: Int) -> PHAsset? {
