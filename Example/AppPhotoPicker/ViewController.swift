@@ -203,7 +203,13 @@ class ViewController: UIViewController,TLPhotosPickerViewControllerDelegate {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         picker.present(alert, animated: true, completion: nil)
     }
-
+    
+    func handleInitialNoAlbumPermissions(picker: TLPhotosPickerViewController) {
+        DispatchQueue.main.async {
+            picker.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     func showExceededMaximumAlert(vc: UIViewController) {
         let alert = UIAlertController(title: "", message: "Exceed Maximum Number Of Selection", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))

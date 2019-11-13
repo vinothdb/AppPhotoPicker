@@ -20,6 +20,9 @@ public protocol TLPhotosPickerViewControllerDelegate: class {
     func didExceedMaximumNumberOfSelection(picker: TLPhotosPickerViewController)
     func handleNoAlbumPermissions(picker: TLPhotosPickerViewController)
     func handleNoCameraPermissions(picker: TLPhotosPickerViewController)
+    
+    func handleInitialNoAlbumPermissions(picker: TLPhotosPickerViewController)
+    func handleInitialNoCameraPermissions(picker: TLPhotosPickerViewController)
 }
 
 extension TLPhotosPickerViewControllerDelegate {
@@ -32,6 +35,9 @@ extension TLPhotosPickerViewControllerDelegate {
     public func didExceedMaximumNumberOfSelection(picker: TLPhotosPickerViewController) { }
     public func handleNoAlbumPermissions(picker: TLPhotosPickerViewController) { }
     public func handleNoCameraPermissions(picker: TLPhotosPickerViewController) { }
+    
+    public func handleInitialNoAlbumPermissions(picker: TLPhotosPickerViewController) { }
+    public func handleInitialNoCameraPermissions(picker: TLPhotosPickerViewController) { }
 }
 
 //for log
@@ -215,7 +221,7 @@ open class TLPhotosPickerViewController: UIViewController {
                 case .authorized:
                     self?.initPhotoLibrary()
                 default:
-                    self?.handleDeniedAlbumsAuthorization()
+                    self?.handleInitialDeniedAlbumsAuthorization()
                 }
             }
         case .authorized:
@@ -517,7 +523,7 @@ extension TLPhotosPickerViewController: UIImagePickerControllerDelegate, UINavig
                     if authorized {
                         self?.showCamera()
                     } else {
-                        self?.handleDeniedCameraAuthorization()
+                        self?.handleInitialDeniedCameraAuthorization()
                     }
                 }
             })
@@ -545,16 +551,28 @@ extension TLPhotosPickerViewController: UIImagePickerControllerDelegate, UINavig
         self.present(picker, animated: true, completion: nil)
     }
 
+    // Album
     private func handleDeniedAlbumsAuthorization() {
         self.delegate?.handleNoAlbumPermissions(picker: self)
         self.handleNoAlbumPermissions?(self)
     }
     
+    private func handleInitialDeniedAlbumsAuthorization() {
+        self.delegate?.handleInitialNoAlbumPermissions(picker: self)
+        self.handleNoAlbumPermissions?(self)
+    }
+    
+    // Camera
     private func handleDeniedCameraAuthorization() {
         self.delegate?.handleNoCameraPermissions(picker: self)
         self.handleNoCameraPermissions?(self)
     }
     
+    private func handleInitialDeniedCameraAuthorization() {
+        self.delegate?.handleInitialNoCameraPermissions(picker: self)
+        self.handleNoCameraPermissions?(self)
+    }
+
     open func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
