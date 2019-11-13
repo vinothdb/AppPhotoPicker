@@ -315,6 +315,20 @@ public struct TLAssetsCollection {
         self.localIdentifier = collection.localIdentifier
     }
     
+    public func getIndexPath(of asset: TLPHAsset) -> IndexPath? {
+        guard let sections = self.sections else { return nil }
+        var indexPath: IndexPath? = nil
+        for i in stride(from: 0, to: sections.count, by: 1) {
+            for j in stride(from: 0, to: sections[i].assets.count, by: 1) {
+                if asset == sections[i].assets[j] {
+                    indexPath = IndexPath(row: j, section: i)
+                    break
+                }
+            }
+        }
+        return indexPath
+    }
+    
     func getAsset(at index: Int) -> PHAsset? {
         if self.useCameraButton && index == 0 { return nil }
         let index = index - (self.useCameraButton ? 1 : 0)
