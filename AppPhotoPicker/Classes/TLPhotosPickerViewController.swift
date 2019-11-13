@@ -20,6 +20,9 @@ public protocol TLPhotosPickerViewControllerDelegate: class {
     func didExceedMaximumNumberOfSelection(picker: TLPhotosPickerViewController)
     func handleNoAlbumPermissions(picker: TLPhotosPickerViewController)
     func handleNoCameraPermissions(picker: TLPhotosPickerViewController)
+    
+    func handleInitialNoAlbumPermissions(picker: TLPhotosPickerViewController)
+    func handleInitialNoCameraPermissions(picker: TLPhotosPickerViewController)
 }
 
 extension TLPhotosPickerViewControllerDelegate {
@@ -32,6 +35,9 @@ extension TLPhotosPickerViewControllerDelegate {
     public func didExceedMaximumNumberOfSelection(picker: TLPhotosPickerViewController) { }
     public func handleNoAlbumPermissions(picker: TLPhotosPickerViewController) { }
     public func handleNoCameraPermissions(picker: TLPhotosPickerViewController) { }
+    
+    public func handleInitialNoAlbumPermissions(picker: TLPhotosPickerViewController) { }
+    public func handleInitialNoCameraPermissions(picker: TLPhotosPickerViewController) { }
 }
 
 //for log
@@ -209,22 +215,22 @@ open class TLPhotosPickerViewController: UIViewController {
     
     func checkAuthorization() {
         switch PHPhotoLibrary.authorizationStatus() {
-        case .notDetermined:
-            PHPhotoLibrary.requestAuthorization { [weak self] status in
-                switch status {
-                case .authorized:
-                    self?.initPhotoLibrary()
-                default:
-                    self?.handleDeniedAlbumsAuthorization()
-                }
+            case .notDetermined:
+                PHPhotoLibrary.requestAuthorization { [weak self] status in
+                    switch status {
+                        case .authorized:
+                            self?.initPhotoLibrary()
+                        default:
+                            self?.handleInitialDeniedAlbumsAuthorization()
+                    }
             }
-        case .authorized:
-            self.initPhotoLibrary()
-        case .restricted: fallthrough
-        case .denied:
-            handleDeniedAlbumsAuthorization()
-        @unknown default:
-            break
+            case .authorized:
+                self.initPhotoLibrary()
+            case .restricted: fallthrough
+            case .denied:
+                handleDeniedAlbumsAuthorization()
+            @unknown default:
+                break
         }
     }
     
@@ -509,25 +515,25 @@ extension TLPhotosPickerViewController: UIImagePickerControllerDelegate, UINavig
     private func showCameraIfAuthorized() {
         let cameraAuthorization = AVCaptureDevice.authorizationStatus(for: .video)
         switch cameraAuthorization {
-        case .authorized:
-            self.showCamera()
-        case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video, completionHandler: { [weak self] (authorized) in
-                DispatchQueue.main.async { [weak self] in
-                    if authorized {
-                        self?.showCamera()
-                    } else {
-                        self?.handleDeniedCameraAuthorization()
+            case .authorized:
+                self.showCamera()
+            case .notDetermined:
+                AVCaptureDevice.requestAccess(for: .video, completionHandler: { [weak self] (authorized) in
+                    DispatchQueue.main.async { [weak self] in
+                        if authorized {
+                            self?.showCamera()
+                        } else {
+                            self?.handleInitialDeniedCameraAuthorization()
+                        }
                     }
-                }
-            })
-        case .restricted, .denied:
-            self.handleDeniedCameraAuthorization()
-        @unknown default:
-            break
+                })
+            case .restricted, .denied:
+                self.handleDeniedCameraAuthorization()
+            @unknown default:
+                break
         }
     }
-
+    
     private func showCamera() {
         guard !maxCheck() else { return }
         let picker = UIImagePickerController()
@@ -544,14 +550,26 @@ extension TLPhotosPickerViewController: UIImagePickerControllerDelegate, UINavig
         picker.delegate = self
         self.present(picker, animated: true, completion: nil)
     }
-
+    
+    // Album
     private func handleDeniedAlbumsAuthorization() {
         self.delegate?.handleNoAlbumPermissions(picker: self)
         self.handleNoAlbumPermissions?(self)
     }
     
+    private func handleInitialDeniedAlbumsAuthorization() {
+        self.delegate?.handleInitialNoAlbumPermissions(picker: self)
+        self.handleNoAlbumPermissions?(self)
+    }
+    
+    // Camera
     private func handleDeniedCameraAuthorization() {
         self.delegate?.handleNoCameraPermissions(picker: self)
+        self.handleNoCameraPermissions?(self)
+    }
+    
+    private func handleInitialDeniedCameraAuthorization() {
+        self.delegate?.handleInitialNoCameraPermissions(picker: self)
         self.handleNoCameraPermissions?(self)
     }
     
@@ -739,13 +757,13 @@ extension TLPhotosPickerViewController: PHPhotoLibraryChangeObserver {
                             self.collectionView.moveItem(at: IndexPath(item: fromIndex, section: 0),
                                                          to: IndexPath(item: toIndex, section: 0))
                         }
-                    }, completion: { [weak self] (completed) in
-                        guard let `self` = self else { return }
-                        if completed {
-                            if let changed = changes.changedIndexes, changed.count > 0 {
-                                self.collectionView.reloadItems(at: changed.map { IndexPath(item: $0+addIndex, section:0) })
+                        }, completion: { [weak self] (completed) in
+                            guard let `self` = self else { return }
+                            if completed {
+                                if let changed = changes.changedIndexes, changed.count > 0 {
+                                    self.collectionView.reloadItems(at: changed.map { IndexPath(item: $0+addIndex, section:0) })
+                                }
                             }
-                        }
                     })
                 }
             }else {
@@ -804,7 +822,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
         guard var asset = collection.getTLAsset(at: indexPath), let phAsset = asset.phAsset else { return }
         cell.popScaleAnim()
         if let index = self.selectedAssets.firstIndex(where: { $0.phAsset == asset.phAsset }) {
-        //deselect
+            //deselect
             self.logDelegate?.deselectedPhoto(picker: self, at: indexPath.row)
             self.selectedAssets.remove(at: index)
             #if swift(>=4.1)
@@ -827,7 +845,7 @@ extension TLPhotosPickerViewController: UICollectionViewDelegate,UICollectionVie
                 stopPlay()
             }
         }else {
-        //select
+            //select
             self.logDelegate?.selectedPhoto(picker: self, at: indexPath.row)
             guard !maxCheck() else { return }
             guard canSelect(phAsset: phAsset) else { return }

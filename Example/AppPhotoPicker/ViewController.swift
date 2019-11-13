@@ -198,6 +198,13 @@ class ViewController: UIViewController,TLPhotosPickerViewControllerDelegate {
         }
     }
     
+    func handleInitialNoAlbumPermissions(picker: TLPhotosPickerViewController) {
+        DispatchQueue.main.async {
+            picker.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    
     func handleNoCameraPermissions(picker: TLPhotosPickerViewController) {
         let alert = UIAlertController(title: "", message: "Denied camera permissions granted", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
