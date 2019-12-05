@@ -6,7 +6,8 @@
 //  Copyright © 2017년 wade.hawk. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import UIKit.UIImage
 import Photos
 
 protocol TLPhotoLibraryDelegate: class {

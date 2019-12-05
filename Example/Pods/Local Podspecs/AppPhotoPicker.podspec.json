@@ -18,10 +18,10 @@
     "ios": "10.0"
   },
   "swift_versions": "4.2",
-  "source_files": "AppPhotoPicker/Classes/**/*",
+  "source_files": "Sources/AppPhotoPicker/Classes/**/*",
   "resource_bundles": {
     "AppPhotoPicker": [
-      "AppPhotoPicker/Classes/*.xib"
+      "Sources/AppPhotoPicker/Classes/*.xib"
     ]
   },
   "swift_version": "4.2"
