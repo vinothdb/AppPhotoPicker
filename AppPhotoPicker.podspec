@@ -20,5 +20,6 @@ Pod::Spec.new do |s|
   s.swift_version = '4.2'
   s.source_files = 'Sources/AppPhotoPicker/Classes/**/*'
   s.resource_bundles = { 'AppPhotoPicker' => ['Sources/AppPhotoPicker/Classes/**/*{.xib}'] }
+  s.resource_bundles = { 'AppPhotoPicker' => ['Sources/AppPhotoPicker/Assets/**/*.{xcassets}'] }
 
 end

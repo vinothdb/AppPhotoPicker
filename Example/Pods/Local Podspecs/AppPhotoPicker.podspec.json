@@ -21,7 +21,7 @@
   "source_files": "Sources/AppPhotoPicker/Classes/**/*",
   "resource_bundles": {
     "AppPhotoPicker": [
-      "Sources/AppPhotoPicker/Classes/*.xib"
+      "Sources/AppPhotoPicker/Assets/**/*.{xcassets}"
     ]
   },
   "swift_version": "4.2"
