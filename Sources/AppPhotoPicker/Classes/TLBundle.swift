@@ -9,17 +9,15 @@
 import UIKit
 
 open class TLBundle {
-    open class func podBundleImage(named: String) -> UIImage? {
-        let podBundle = Bundle(for: TLBundle.self)
-        if let url = podBundle.url(forResource: "AppPhotoPicker", withExtension: "bundle") {
-            let bundle = Bundle(url: url)
-            return UIImage(named: named, in: bundle, compatibleWith: nil)!
-        }
-        return nil
-    }
-    
-    class func bundle() -> Bundle {
-        return Bundle(for: TLBundle.self)
-    }
+	open class func podBundleImage(named: String) -> UIImage? {
+		let podBundle = TLBundle.bundle()
+		guard let url = podBundle.url(forResource: "AppPhotoPicker", withExtension: "bundle") else { return nil }
+		let bundle = Bundle(url: url)
+		return UIImage(named: named, in: bundle, compatibleWith: nil)!
+	}
+	
+	class func bundle() -> Bundle {
+		return Bundle(for: TLBundle.self)
+	}
 }
 
