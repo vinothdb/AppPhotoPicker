@@ -262,7 +262,7 @@ open class TLPhotosPickerViewController: UIViewController {
         if
             self.configure.singleSelectedMode == true,
             let selectedPHAsset = self.selectedAssets.first,
-            var indexPath = self.focusedCollection?.getIndexPath(of: selectedPHAsset)
+			let indexPath = self.focusedCollection?.getIndexPath(of: selectedPHAsset)
         {
             self.selectedAssets.removeAll()
             self.collectionView.reloadItems(at: [indexPath])

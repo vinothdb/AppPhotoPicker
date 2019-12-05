@@ -12,18 +12,13 @@ Pod::Spec.new do |s|
   s.summary          = 'Catchy photo picker, just like facebook'
 
   s.homepage         = 'https://github.com/monicarajendran/AppPhotoPicker'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'monicarajendran' => 'monicarajendran96@gmail.com' }
   s.source           = { :git => 'https://github.com/monicarajendran/AppPhotoPicker.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/monica__raja'
-
-  s.ios.deployment_target = '9.3'
-  s.swift_version = '5.0'
-
-  s.source_files = 'AppPhotoPicker/Classes/**/*'
   
+  s.ios.deployment_target = '10.0'
+  s.swift_version = '4.2'
+  s.source_files = 'AppPhotoPicker/Classes/**/*'
   s.resource_bundles = { 'AppPhotoPicker' => ['AppPhotoPicker/Classes/*.xib'] }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
 end

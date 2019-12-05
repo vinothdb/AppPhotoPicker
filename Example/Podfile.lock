@@ -1,5 +1,5 @@
 PODS:
-  - AppPhotoPicker (0.1.0)
+  - AppPhotoPicker (3.4.9)
 
 DEPENDENCIES:
   - AppPhotoPicker (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AppPhotoPicker: 17f8c1647f73b81fb98dc8bb3a2d28f5289db09f
+  AppPhotoPicker: 745a01bf5d194c23a7e6b85a32fe1e402b231280
 
 PODFILE CHECKSUM: 02814f7d68c0f2d619a9c39af83dd8b1c338a890
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.8.4
