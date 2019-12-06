@@ -189,7 +189,8 @@ open class TLPhotosPickerViewController: UIViewController {
     }
     
     public init() {
-        super.init(nibName: "TLPhotosPickerViewController", bundle: TLBundle.bundle())
+		super.init(nibName: "TLPhotosPickerViewController", bundle: nil)
+        //super.init(nibName: "TLPhotosPickerViewController", bundle: TLBundle.bundle())
     }
     
     @objc convenience public init(withPHAssets: (([PHAsset]) -> Void)? = nil, didCancel: (() -> Void)? = nil) {
