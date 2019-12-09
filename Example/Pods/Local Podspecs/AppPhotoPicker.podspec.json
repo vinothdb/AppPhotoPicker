@@ -1,8 +1,7 @@
 {
   "name": "AppPhotoPicker",
-  "version": "0.1.0",
-  "summary": "A short description of AppPhotoPicker.",
-  "description": "TODO: Add long description of the pod here.",
+  "version": "3.4.9",
+  "summary": "Catchy photo picker, just like facebook",
   "homepage": "https://github.com/monicarajendran/AppPhotoPicker",
   "license": {
     "type": "MIT",
@@ -13,10 +12,17 @@
   },
   "source": {
     "git": "https://github.com/monicarajendran/AppPhotoPicker.git",
-    "tag": "0.1.0"
+    "tag": "3.4.9"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.3"
   },
-  "source_files": "AppPhotoPicker/Classes/**/*"
+  "swift_versions": "5.0",
+  "source_files": "AppPhotoPicker/Classes/**/*",
+  "resource_bundles": {
+    "AppPhotoPicker": [
+      "AppPhotoPicker/Classes/*.xib"
+    ]
+  },
+  "swift_version": "5.0"
 }
