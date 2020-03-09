@@ -176,7 +176,13 @@ public struct TLPHAsset {
             //iCloud download progress
             requestOptions.progressHandler = { (progress, error, stop, info) in
                 DispatchQueue.main.async {
-                    progressBlock?(progress)
+                    /*
+                     Progress will range from 0 to 0.5 for download from iCloud
+                     and 0.5 to 1 for export.
+                     
+                     Export progress is handled seperately.
+                    */
+                    progressBlock?(progress/2.0)
                 }
             }
             return PHImageManager.default().requestExportSession(forVideo: phAsset, options: requestOptions, exportPreset: exportPreset) { (session, infoDict) in
@@ -187,6 +193,25 @@ public struct TLPHAsset {
                         completionBlock(localURL, mimetype)
                     }
                 })
+                func checkExportSession() {
+                    DispatchQueue.global().async { [weak session] in
+                        guard let exportSession = session else { return }
+                        switch exportSession.status {
+                        case .waiting,.exporting:
+                            if exportSession.status == .exporting {
+                                DispatchQueue.main.async {
+                                    //Adds 0.5 since it is already downloaded. This purely tracks export progress alone.
+                                    progressBlock?(Double(0.5+(exportSession.progress/2.0)))
+                                }
+                            }
+                            Thread.sleep(forTimeInterval: 1)
+                            checkExportSession()
+                        default:
+                            break
+                        }
+                    }
+                }
+                checkExportSession()
             }
         case .image:
             var requestOptions = PHImageRequestOptions()
